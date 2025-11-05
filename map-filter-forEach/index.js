@@ -88,16 +88,20 @@ Use the native filter method to return a new array of the film
 objects that were directed by Alfred Hitchcock.
 */
 
-let hitchcock;
-
+let hitchcock = films.filter(function(film){
+  return film.director === 'Alfred Hitchcock';
+});
+// console.log(hitchcock);
 /*
 Prompt #2
 Use the native filter method to return a new array of the film objects
 that were made in the 1980s.
 */
 
-let eighties;
-
+let eighties = films.filter(function(film){
+  return film.year >= 1980 && film.year <= 1989;
+});
+// console.log(eighties);
 /*
 Prompt #3
 Use the map method to return a new array of strings of each film's title
@@ -107,23 +111,30 @@ example output:
 // ['Rear Window (1954)', 'The Thing (1982)', 'Vertigo (1958)', 'Fright Night (1985)']
 */
 
-let mappedStrings;
-
+let mappedStrings = films.map(function(film){
+  return film.title  + " (" + film.year + ")";
+});
+// console.log(mappedStrings);
 /*
 Prompt #4
 Use the native filter method to return a new array of the film objects that have a physicalMedia quantity
 of 2.
 */
 
-let quantityTwo;
-
+let quantityTwo = films.filter(function(film){
+  return film.physicalMedia.quantity === 2;
+});
+// console.log(quantityTwo);
 /*
 Prompt #5
 Use the native filter method to return a new array of the film objects who have Kurt Russell in the cast.
 */
 
-let kurtRussell;
-
+let kurtRussell = films.filter(function(film){
+  var cast = film['cast']
+  return cast[0] === 'Kurt Russell'
+});
+console.log(kurtRussell);
 /*
 Prompt #6
 Use the native map method to return a new array of strings of each film's title and the top-billed
