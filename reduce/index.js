@@ -88,24 +88,39 @@ Use the native reduce method to return the number of films that were made
 in the 1950s.
 */
 
-let numFifties;
-
+let numFifties = films.reduce(function(acc, film){
+  if (film.year >= 1950 && film.year <= 1959){
+    acc += 1
+  }
+  return acc;
+}, 0);
+console.log(numFifties);
 /*
 Prompt #2
 Use the native reduce method to return a new array of the films whose physicalMedia
 type is "Bluray".
 */
 
-let blurays;
-
+let blurays = films.reduce(function(acc, film){
+  if (film.physicalMedia['type'] === 'Bluray'){
+    acc.push(film);
+  }
+  return acc;
+}, []);
+console.log(blurays);
 /*
 Prompt #3
 Use the native reduce method to return a new array of the film titles whose genreTags
 array includes 'Horror'
 */
 
-let horror;
-
+let horror = films.reduce(function(acc, film){
+  if (film.genreTags.includes('Horror')){
+    acc.push(film.title);
+  }
+  return acc;
+}, []);
+console.log(horror);
 /*
 Prompt #4
 Use the native reduce method to return a string of each title's first letter.
@@ -114,5 +129,9 @@ example output:
 // 'RTVF'
 */
 
-let firstLetters;
+let firstLetters = films.reduce(function(acc, film){
+  acc += film.title[0];
+  return acc;
+}, "");
 
+console.log(firstLetters);

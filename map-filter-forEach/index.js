@@ -91,7 +91,7 @@ objects that were directed by Alfred Hitchcock.
 let hitchcock = films.filter(function(film){
   return film.director === 'Alfred Hitchcock';
 });
-// console.log(hitchcock);
+console.log(hitchcock);
 /*
 Prompt #2
 Use the native filter method to return a new array of the film objects
@@ -101,7 +101,7 @@ that were made in the 1980s.
 let eighties = films.filter(function(film){
   return film.year >= 1980 && film.year <= 1989;
 });
-// console.log(eighties);
+console.log(eighties);
 /*
 Prompt #3
 Use the map method to return a new array of strings of each film's title
@@ -114,7 +114,7 @@ example output:
 let mappedStrings = films.map(function(film){
   return film.title  + " (" + film.year + ")";
 });
-// console.log(mappedStrings);
+console.log(mappedStrings);
 /*
 Prompt #4
 Use the native filter method to return a new array of the film objects that have a physicalMedia quantity
@@ -124,15 +124,14 @@ of 2.
 let quantityTwo = films.filter(function(film){
   return film.physicalMedia.quantity === 2;
 });
-// console.log(quantityTwo);
+console.log(quantityTwo);
 /*
 Prompt #5
 Use the native filter method to return a new array of the film objects who have Kurt Russell in the cast.
 */
 
 let kurtRussell = films.filter(function(film){
-  var cast = film['cast']
-  return cast[0] === 'Kurt Russell'
+ return film.cast[0].name === 'Kurt Russell';
 });
 console.log(kurtRussell);
 /*
@@ -141,4 +140,7 @@ Use the native map method to return a new array of strings of each film's title 
 cast member (top billed cast member will be the first cast member in the cast array).
 */
 
-let mappedWithCastMember;
+let mappedWithCastMember = films.map(function(film){
+  return film.title + " " + film.cast[0].name;
+});
+console.log(mappedWithCastMember)
